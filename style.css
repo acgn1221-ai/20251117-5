@@ -1,0 +1,52 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+/* 選單與 iframe 樣式 */
+.iframe-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  z-index: 9998;
+  display: none;
+}
+
+iframe {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 當 iframe 顯示時，p5 內會設定 style="display:block"，
+   若需要顯示遮罩，可用 .iframe-overlay.show 來控制 */
+.iframe-overlay.show {
+  display: block;
+}
+
+/* 首頁學生資訊樣式 */
+.home-banner {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10001; /* 確保在 iframe 之上 */
+  pointer-events: none; /* 讓滑鼠事件透過到畫布/選單（文字可用 pointer-events: auto） */
+}
+.student-info {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', 'Helvetica Neue', Arial;
+  font-size: 20px; /* 使用者要求 20px */
+  line-height: 1.2;
+  text-align: center;
+  pointer-events: auto; /* 允許選中文字或點擊（若需） */
+}
